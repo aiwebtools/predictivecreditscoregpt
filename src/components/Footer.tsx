@@ -1,4 +1,3 @@
-
 import { Mail, Phone } from 'lucide-react';
 import SearchCheck from './SearchCheck';
 
@@ -75,14 +74,6 @@ const Footer = () => {
                   className="text-gray-400 hover:text-neon-cyan transition-colors"
                 >
                   Disclaimer
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://www.aiwebtools.ai" 
-                  className="text-gray-400 hover:text-neon-cyan transition-colors"
-                >
-                  More AI Tools
                 </a>
               </li>
             </ul>
