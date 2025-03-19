@@ -9,6 +9,7 @@ import FAQ from '../components/FAQ';
 import CreditScoreDemo from '../components/CreditScoreDemo';
 import Footer from '../components/Footer';
 import DisclaimerModal from '../components/DisclaimerModal';
+import ToolsSection from '../components/ToolsSection';
 
 const Index = () => {
   useEffect(() => {
@@ -57,11 +58,14 @@ const Index = () => {
         {/* Demo section */}
         <CreditScoreDemo />
         
-        {/* Testimonials section */}
-        <Testimonials />
-        
         {/* FAQ section */}
         <FAQ />
+        
+        {/* Tools section - added between FAQ and Testimonials */}
+        <ToolsSection />
+        
+        {/* Testimonials section */}
+        <Testimonials />
       </main>
       
       {/* Footer */}
