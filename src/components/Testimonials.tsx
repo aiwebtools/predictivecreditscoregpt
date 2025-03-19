@@ -1,6 +1,7 @@
 
 import { useRef, useState, useEffect } from 'react';
 import { Star, Quote } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 
 const Testimonials = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -61,19 +62,25 @@ const Testimonials = () => {
               <Quote className="absolute top-6 right-6 w-8 h-8 text-neon-cyan/20" />
               
               <div className="flex mb-4">
+                {/* Render stars based on the testimonial's rating */}
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-neon-cyan" fill="#0ff" />
+                  <Star 
+                    key={i} 
+                    className={`w-4 h-4 ${i < testimonial.rating ? 'text-neon-cyan' : 'text-gray-600'}`}
+                    fill={i < testimonial.rating ? "#0ff" : "transparent"}
+                  />
                 ))}
               </div>
               
               <p className="text-gray-300 italic mb-6">"{testimonial.quote}"</p>
               
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-neon-cyan to-neon-blue">
-                  <div className="w-full h-full bg-dark-card/80 flex items-center justify-center">
-                    <span className="text-white font-semibold">{testimonial.name.charAt(0)}</span>
-                  </div>
-                </div>
+                <Avatar className="w-12 h-12 border border-neon-cyan/30">
+                  <AvatarImage src={testimonial.image} alt={testimonial.name} />
+                  <AvatarFallback className="bg-gradient-to-br from-neon-cyan to-neon-blue">
+                    {testimonial.name.charAt(0)}
+                  </AvatarFallback>
+                </Avatar>
                 
                 <div>
                   <p className="text-white font-semibold">{testimonial.name}</p>
@@ -126,17 +133,23 @@ const testimonials = [
   {
     quote: "This tool has revolutionized our loan pre-qualification process. The accuracy of credit score predictions has helped us target the right customers effectively.",
     name: "Jennifer R.",
-    title: "Mortgage Broker"
+    title: "Mortgage Broker",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=150&h=150"
   },
   {
     quote: "The detailed analysis provided for each prediction gives me confidence in making financial recommendations to my clients. A game-changer for our advisory services.",
     name: "Michael T.",
-    title: "Financial Advisor"
+    title: "Financial Advisor",
+    rating: 4,
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=150&h=150"
   },
   {
     quote: "I was skeptical at first, but the predictions have been remarkably close to actual credit scores. This saves us valuable time in the qualification process.",
     name: "Sarah L.",
-    title: "Real Estate Agent"
+    title: "Real Estate Agent",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=150&h=150"
   }
 ];
 
