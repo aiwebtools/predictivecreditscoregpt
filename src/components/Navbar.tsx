@@ -48,7 +48,7 @@ const Navbar = () => {
               href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker" 
               className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
             >
-              Use Predictor
+              Use Predictive Credit Score GPT
             </a>
             <a 
               href="https://propertydatafindergpt.lovable.app/?via=aiwebtools" 
@@ -109,7 +109,7 @@ const Navbar = () => {
               href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker" 
               className="text-sm font-medium text-white py-2 border-b border-white/10"
             >
-              Use Predictive Credit Score Checker
+              Use Predictive Credit Score GPT
             </a>
             <a 
               href="https://propertydatafindergpt.lovable.app/?via=aiwebtools" 
