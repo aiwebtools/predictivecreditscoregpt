@@ -10,6 +10,7 @@ import CreditScoreDemo from '../components/CreditScoreDemo';
 import Footer from '../components/Footer';
 import DisclaimerModal from '../components/DisclaimerModal';
 import ToolsSection from '../components/ToolsSection';
+import Disclaimer from '../components/Disclaimer';
 
 const Index = () => {
   useEffect(() => {
@@ -67,6 +68,9 @@ const Index = () => {
         {/* Testimonials section */}
         <Testimonials />
       </main>
+      
+      {/* Disclaimer section - moved above footer */}
+      <Disclaimer />
       
       {/* Footer */}
       <Footer />
