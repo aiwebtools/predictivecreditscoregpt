@@ -1,5 +1,5 @@
 
-import { Facebook, Twitter, Linkedin, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import SearchCheck from './SearchCheck';
 
 const Footer = () => {
@@ -30,17 +30,7 @@ const Footer = () => {
               Advanced AI technology that predicts potential credit scores based on property addresses and multiple economic factors.
             </p>
             
-            <div className="flex gap-4">
-              <a href="#" className="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors">
-                <Facebook className="w-4 h-4 text-white" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors">
-                <Twitter className="w-4 h-4 text-white" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors">
-                <Linkedin className="w-4 h-4 text-white" />
-              </a>
-            </div>
+            {/* Social media icons section removed */}
           </div>
           
           {/* Links */}
