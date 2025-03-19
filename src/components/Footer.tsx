@@ -1,5 +1,6 @@
 
 import { Facebook, Twitter, Linkedin, Mail, Phone } from 'lucide-react';
+import SearchCheck from './SearchCheck';
 
 const Footer = () => {
   return (
