@@ -42,49 +42,51 @@ const Navbar = () => {
         </a>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <a 
-            href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker" 
-            className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-          >
-            Use Predictor
-          </a>
-          <a 
-            href="https://propertydatafindergpt.lovable.app/?via=aiwebtools" 
-            className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-          >
-            Real Estate Tools
-          </a>
-          <a 
-            href="https://insuranceclaimsgpt.lovable.app/?via=aiwebtools" 
-            className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-          >
-            Insurance Tools
-          </a>
-          <Separator orientation="vertical" className="h-5 bg-gray-700" />
-          <div className="flex space-x-6">
+        <div className="hidden md:flex items-center space-x-4 md:space-x-8">
+          <nav className="flex items-center space-x-8 mr-6">
             <a 
-              href="#faq" 
+              href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker" 
               className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
             >
-              FAQ
+              Use Predictor
             </a>
             <a 
-              href="#disclaimer" 
+              href="https://propertydatafindergpt.lovable.app/?via=aiwebtools" 
               className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
             >
-              Disclaimer
+              Real Estate Tools
             </a>
-          </div>
-        </nav>
-        
-        {/* CTA Button */}
-        <a 
-          href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker"
-          className="hidden md:flex items-center px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-cyan to-neon-blue text-dark font-semibold transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105"
-        >
-          Try It Now
-        </a>
+            <a 
+              href="https://insuranceclaimsgpt.lovable.app/?via=aiwebtools" 
+              className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+            >
+              Insurance Tools
+            </a>
+            <Separator orientation="vertical" className="h-5 bg-gray-700" />
+            <div className="flex items-center space-x-6">
+              <a 
+                href="#faq" 
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+              >
+                FAQ
+              </a>
+              <a 
+                href="#disclaimer" 
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+              >
+                Disclaimer
+              </a>
+            </div>
+          </nav>
+          
+          {/* CTA Button */}
+          <a 
+            href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker"
+            className="flex items-center px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-cyan to-neon-blue text-dark font-semibold transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105"
+          >
+            Try It Now
+          </a>
+        </div>
         
         {/* Mobile Menu Button */}
         <button 
