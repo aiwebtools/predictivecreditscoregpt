@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { SearchCheck, TrendingUp, Sparkles, BarChart4 } from 'lucide-react';
 
@@ -87,13 +86,6 @@ const Hero = () => {
                   </div>
                 </div>
                 
-                <div className="mb-6">
-                  <label className="block text-gray-400 text-sm mb-2">Property Address</label>
-                  <div className="glass rounded-lg p-3 text-white text-sm">
-                    123 Main Street, Anytown, CA 91234
-                  </div>
-                </div>
-                
                 <div className="mb-8">
                   <div className="flex justify-between mb-2">
                     <span className="text-gray-400 text-sm">Prediction Confidence</span>
@@ -119,9 +111,12 @@ const Hero = () => {
                   </div>
                 </div>
                 
-                <button className="w-full py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-blue text-dark font-semibold transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)]">
-                  View Full Report
-                </button>
+                <a 
+                  href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker"
+                  className="w-full py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-blue text-dark font-semibold transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] flex items-center justify-center"
+                >
+                  USE CREDIT SCORE PREDICTOR GPT NOW
+                </a>
               </div>
               
               {/* Background decorative elements */}
