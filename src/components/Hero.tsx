@@ -21,7 +21,7 @@ const Hero = () => {
           <div className={`transition-all duration-1000 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <div className="flex items-center gap-2 mb-4">
               <div className="h-px w-10 bg-neon-cyan"></div>
-              <span className="text-neon-cyan text-sm font-medium">AI-POWERED PREDICTION</span>
+              <span className="text-neon-cyan text-sm font-medium">AI-POWERED CREDIT SCORE PREDICTION</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
