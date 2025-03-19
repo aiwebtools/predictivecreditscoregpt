@@ -33,7 +33,7 @@ const Navbar = () => {
           </div>
           <div>
             <h1 className="font-bold text-white text-xl leading-tight">
-              Predictive Credit Score<span className="text-neon-cyan">.</span>
+              Predictive Credit Score GPT<span className="text-neon-cyan">.</span>
             </h1>
             <p className="text-xs text-gray-400 -mt-1">
               Presented by <a href="https://www.aiwebtools.ai" className="text-neon-cyan hover:text-neon-purple transition-colors">AiWebTools.Ai</a>

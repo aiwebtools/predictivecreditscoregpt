@@ -19,10 +19,10 @@ const Footer = () => {
               </div>
               <div>
                 <h1 className="font-bold text-white text-xl leading-tight">
-                  Predictive Credit Score<span className="text-neon-cyan">.</span>
+                  Predictive Credit Score GPT<span className="text-neon-cyan">.</span>
                 </h1>
                 <p className="text-xs text-gray-400 -mt-1">
-                  by <a href="https://www.aiwebtools.ai" className="hover:text-neon-cyan">AiWebTools.Ai</a>
+                  Presented by <a href="https://www.aiwebtools.ai" className="hover:text-neon-cyan">AiWebTools.Ai</a>
                 </p>
               </div>
             </a>
