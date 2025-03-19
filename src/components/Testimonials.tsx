@@ -84,22 +84,37 @@ const Testimonials = () => {
           ))}
         </div>
         
-        {/* Partners section */}
-        <div className="mt-24">
-          <p className="text-center text-gray-400 mb-10">Trusted by leading companies</p>
+        {/* Tool information section - replacing partners section */}
+        <div className="mt-24 glass-card p-8 rounded-xl">
+          <h3 className="text-2xl font-bold text-white text-center mb-8">About Our Technology</h3>
           
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {partners.map((partner, index) => (
-              <div 
-                key={index}
-                className={`text-gray-500 text-lg font-semibold transition-all duration-700 ease-out ${
-                  isVisible ? 'opacity-60 translate-y-0' : 'opacity-0 translate-y-6'
-                }`}
-                style={{ transitionDelay: `${(index + 3) * 100}ms` }}
-              >
-                {partner}
-              </div>
-            ))}
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className={`transition-all duration-700 ease-out ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`} style={{ transitionDelay: `300ms` }}>
+              <h4 className="text-neon-cyan font-semibold text-lg mb-3">AI-Powered Predictions</h4>
+              <p className="text-gray-300">
+                Our tool leverages cutting-edge GPT-4o technology to analyze regional trends, economic indicators, and demographic data to predict credit worthiness with remarkable accuracy.
+              </p>
+            </div>
+            
+            <div className={`transition-all duration-700 ease-out ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`} style={{ transitionDelay: `400ms` }}>
+              <h4 className="text-neon-pink font-semibold text-lg mb-3">Privacy-First Approach</h4>
+              <p className="text-gray-300">
+                We never collect or store personal credit information. Our predictions are based on anonymized data patterns and advanced modeling without compromising individual privacy.
+              </p>
+            </div>
+            
+            <div className={`transition-all duration-700 ease-out ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`} style={{ transitionDelay: `500ms` }}>
+              <h4 className="text-neon-blue font-semibold text-lg mb-3">Constantly Evolving</h4>
+              <p className="text-gray-300">
+                Our models are continuously trained on the latest economic data and credit industry trends to ensure the most accurate and relevant predictions available.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -123,10 +138,6 @@ const testimonials = [
     name: "Sarah L.",
     title: "Real Estate Agent"
   }
-];
-
-const partners = [
-  "FINANCE PRO", "REALTY GROUP", "MORTGAGE DIRECT", "CREDIT ADVISORS", "LEND SMART"
 ];
 
 export default Testimonials;
