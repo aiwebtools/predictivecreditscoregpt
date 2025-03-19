@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { SearchCheck, Menu, X } from 'lucide-react';
+import { Separator } from './ui/separator';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,14 +19,14 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'py-3 glass' : 'py-6 bg-transparent'
+        isScrolled ? 'py-3 glass' : 'py-5 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a 
           href="/" 
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-3 group"
         >
           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
             <SearchCheck className="w-6 h-6 text-white" />
@@ -41,43 +42,40 @@ const Navbar = () => {
         </a>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center space-x-8">
           <a 
             href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker" 
             className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
           >
-            Use Predictive Credit Score Checker
+            Use Predictor
           </a>
           <a 
             href="https://propertydatafindergpt.lovable.app/?via=aiwebtools" 
             className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
           >
-            Real Estate AI Tools Suite
+            Real Estate Tools
           </a>
           <a 
             href="https://insuranceclaimsgpt.lovable.app/?via=aiwebtools" 
             className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
           >
-            Insurance Industry AI Tools Suite
+            Insurance Tools
           </a>
-          <a 
-            href="#faq" 
-            className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-          >
-            FAQ
-          </a>
-          <a 
-            href="#disclaimer" 
-            className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-          >
-            Disclaimer
-          </a>
-          <a 
-            href="https://www.aiwebtools.ai" 
-            className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-          >
-            More AI Tools
-          </a>
+          <Separator orientation="vertical" className="h-5 bg-gray-700" />
+          <div className="flex space-x-6">
+            <a 
+              href="#faq" 
+              className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+            >
+              FAQ
+            </a>
+            <a 
+              href="#disclaimer" 
+              className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+            >
+              Disclaimer
+            </a>
+          </div>
         </nav>
         
         {/* CTA Button */}
@@ -104,7 +102,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 glass p-6 animate-fade-in">
-          <nav className="flex flex-col gap-4">
+          <nav className="flex flex-col space-y-4">
             <a 
               href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker" 
               className="text-sm font-medium text-white py-2 border-b border-white/10"
@@ -136,12 +134,6 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Disclaimer
-            </a>
-            <a 
-              href="https://www.aiwebtools.ai" 
-              className="text-sm font-medium text-white py-2 border-b border-white/10"
-            >
-              More AI Tools
             </a>
             <a 
               href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker"

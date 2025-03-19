@@ -1,16 +1,18 @@
+
 import { Mail, Phone } from 'lucide-react';
 import SearchCheck from './SearchCheck';
+import { Separator } from './ui/separator';
 
 const Footer = () => {
   return (
-    <footer className="pt-16 border-t border-white/10 relative">
+    <footer className="pt-20 pb-10 border-t border-white/10 relative">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-10 mb-16">
+        <div className="grid md:grid-cols-12 gap-x-12 gap-y-16 mb-16">
           {/* Company info */}
-          <div className="col-span-1 md:col-span-1">
+          <div className="col-span-12 md:col-span-4">
             <a 
               href="/"
-              className="flex items-center gap-2 mb-6 group" 
+              className="flex items-center gap-3 mb-6 group" 
             >
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                 <SearchCheck className="w-6 h-6 text-white" />
@@ -25,23 +27,21 @@ const Footer = () => {
               </div>
             </a>
             
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-6 leading-relaxed">
               Advanced AI technology that predicts potential credit scores based on property addresses and multiple economic factors.
             </p>
-            
-            {/* Social media icons section removed */}
           </div>
           
           {/* Links */}
-          <div>
-            <h4 className="text-white font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-4">
+          <div className="col-span-6 md:col-span-2">
+            <h4 className="text-white font-semibold mb-5 text-lg">Quick Links</h4>
+            <ul className="space-y-3">
               <li>
                 <a 
                   href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker" 
                   className="text-gray-400 hover:text-neon-cyan transition-colors"
                 >
-                  Use Predictive Credit Score Checker
+                  Use Predictor
                 </a>
               </li>
               <li>
@@ -49,7 +49,7 @@ const Footer = () => {
                   href="https://propertydatafindergpt.lovable.app/?via=aiwebtools" 
                   className="text-gray-400 hover:text-neon-cyan transition-colors"
                 >
-                  Real Estate AI Tools Suite
+                  Real Estate Suite
                 </a>
               </li>
               <li>
@@ -57,7 +57,7 @@ const Footer = () => {
                   href="https://insuranceclaimsgpt.lovable.app/?via=aiwebtools" 
                   className="text-gray-400 hover:text-neon-cyan transition-colors"
                 >
-                  Insurance Industry AI Tools Suite
+                  Insurance Suite
                 </a>
               </li>
               <li>
@@ -80,9 +80,9 @@ const Footer = () => {
           </div>
           
           {/* Legal */}
-          <div>
-            <h4 className="text-white font-semibold mb-6">Legal</h4>
-            <ul className="space-y-4">
+          <div className="col-span-6 md:col-span-2">
+            <h4 className="text-white font-semibold mb-5 text-lg">Legal</h4>
+            <ul className="space-y-3">
               <li>
                 <a 
                   href="https://openai.com/policies/privacy-policy/" 
@@ -111,25 +111,25 @@ const Footer = () => {
           </div>
           
           {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold mb-6">Contact Us</h4>
+          <div className="col-span-12 md:col-span-4">
+            <h4 className="text-white font-semibold mb-5 text-lg">Contact Us</h4>
             <ul className="space-y-4">
               <li>
                 <a 
                   href="tel:(475) 800-8096"
-                  className="text-gray-400 hover:text-neon-cyan transition-colors flex items-center gap-2"
+                  className="text-gray-400 hover:text-neon-cyan transition-colors flex items-center gap-3"
                 >
-                  <Phone className="w-4 h-4" />
-                  (475) 800-8096
+                  <Phone className="w-5 h-5 text-neon-cyan" />
+                  <span>(475) 800-8096</span>
                 </a>
               </li>
               <li>
                 <a 
                   href="mailto:Contact@ai-webtools.com"
-                  className="text-gray-400 hover:text-neon-cyan transition-colors flex items-center gap-2"
+                  className="text-gray-400 hover:text-neon-cyan transition-colors flex items-center gap-3"
                 >
-                  <Mail className="w-4 h-4" />
-                  Contact@ai-webtools.com
+                  <Mail className="w-5 h-5 text-neon-cyan" />
+                  <span>Contact@ai-webtools.com</span>
                 </a>
               </li>
             </ul>
@@ -146,10 +146,10 @@ const Footer = () => {
         </div>
         
         {/* Disclaimer section */}
-        <div id="disclaimer" className="glass-card p-6 rounded-xl mb-16">
+        <div id="disclaimer" className="glass-card p-8 rounded-xl mb-16">
           <h3 className="text-xl font-semibold text-white mb-4">Legal Disclaimer</h3>
           
-          <div className="text-gray-400 text-sm space-y-4">
+          <div className="text-gray-400 text-sm space-y-4 max-w-4xl">
             <p>
               The Predictive Credit Score Checker provides estimates and predictions based on publicly available data and statistical models. These predictions are not guaranteed to be accurate and should not be relied upon for making financial or credit decisions.
             </p>
@@ -169,12 +169,13 @@ const Footer = () => {
         </div>
         
         {/* Copyright */}
-        <div className="py-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <Separator className="mb-6 bg-white/5" />
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm">
             © 2025 <a href="https://www.aiwebtools.ai" className="hover:text-neon-cyan">AI WEB TOOLS LLC</a> All rights reserved.
           </p>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center">
             <a href="https://www.aiwebtools.ai" className="text-gray-400 text-sm hover:text-neon-cyan transition-colors">
               Visit AiWebTools.Ai
             </a>
