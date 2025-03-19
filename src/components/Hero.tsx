@@ -1,5 +1,7 @@
+
 import { useState, useEffect } from 'react';
-import { SearchCheck, TrendingUp, Sparkles, BarChart4 } from 'lucide-react';
+import { SearchCheck, TrendingUp, Sparkles, BarChart4, AlertTriangle } from 'lucide-react';
+import { Alert, AlertDescription } from './ui/alert';
 
 const Hero = () => {
   const [visible, setVisible] = useState(false);
@@ -16,6 +18,14 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen pt-32 pb-20 flex items-center">
       <div className="container mx-auto px-6">
+        {/* Small Disclaimer Alert */}
+        <Alert className="mb-8 bg-gray-900/70 border-neon-cyan/30 text-gray-300">
+          <AlertTriangle className="h-4 w-4 text-neon-cyan" />
+          <AlertDescription className="text-sm">
+            <span className="font-medium text-white">Disclaimer:</span> This tool provides predictive estimates only and should not be used as a substitute for official credit checks. Results are not guaranteed.
+          </AlertDescription>
+        </Alert>
+        
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Hero Content */}
           <div className={`transition-all duration-1000 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
