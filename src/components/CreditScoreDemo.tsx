@@ -1,12 +1,17 @@
 
 import { useState, useRef, useEffect } from 'react';
-import { ArrowRight, FileCheck, SearchCheck } from 'lucide-react';
+import { ArrowRight, FileCheck, SearchCheck, BarChart2, AreaChart, TrendingUp } from 'lucide-react';
+import { Button } from './ui/button';
+import { Progress } from './ui/progress';
 
 const CreditScoreDemo = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [address, setAddress] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [animationStage, setAnimationStage] = useState(0);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [showRedirectMessage, setShowRedirectMessage] = useState(false);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,13 +30,60 @@ const CreditScoreDemo = () => {
     
     return () => observer.disconnect();
   }, []);
+
+  // Animation sequence after form submission
+  useEffect(() => {
+    if (!isSubmitted) return;
+
+    // Progress bar animation
+    const progressInterval = setInterval(() => {
+      setLoadingProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(progressInterval);
+          return 100;
+        }
+        return prev + 4;
+      });
+    }, 80);
+
+    // Animation stage progression
+    const stageTimers = [
+      setTimeout(() => setAnimationStage(1), 500),  // Analysis starting
+      setTimeout(() => setAnimationStage(2), 2000), // Data processing
+      setTimeout(() => setAnimationStage(3), 3500), // Results ready
+      setTimeout(() => {
+        setAnimationStage(4); // Completed
+        setShowRedirectMessage(true);
+      }, 5000),
+      setTimeout(() => {
+        window.open("https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker", "_blank");
+      }, 8000) // Open the actual tool after 8 seconds
+    ];
+    
+    return () => {
+      clearInterval(progressInterval);
+      stageTimers.forEach(timer => clearTimeout(timer));
+    };
+  }, [isSubmitted]);
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (address.trim()) {
+      setAnimationStage(0);
+      setLoadingProgress(0);
       setIsSubmitted(true);
+      setShowRedirectMessage(false);
     }
   };
+
+  // Messages for each animation stage
+  const stageMessages = [
+    "Initializing address analysis...",
+    "Processing regional economic data...",
+    "Correlating demographic information...",
+    "Finalizing credit score prediction...",
+    "Analysis Complete!"
+  ];
   
   return (
     <section ref={sectionRef} className="py-24 relative overflow-hidden">
@@ -75,12 +127,13 @@ const CreditScoreDemo = () => {
                 />
               </div>
               
-              <button 
+              <Button 
                 type="submit"
                 className="w-full md:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-neon-cyan to-neon-blue text-dark font-semibold transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105 flex items-center justify-center gap-2"
+                disabled={isSubmitted && animationStage < 4}
               >
                 Run Demo Prediction <ArrowRight className="w-4 h-4" />
-              </button>
+              </Button>
             </form>
             
             <p className="text-gray-400 text-sm">
@@ -90,6 +143,8 @@ const CreditScoreDemo = () => {
             <div className="mt-8 flex items-center gap-4">
               <a 
                 href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-neon-cyan hover:text-neon-purple transition-colors flex items-center gap-2"
               >
                 <FileCheck className="w-5 h-5" />
@@ -120,66 +175,108 @@ const CreditScoreDemo = () => {
                 </div>
               ) : (
                 <div className="animate-fade-in">
-                  <div className="mb-6">
-                    <p className="text-gray-400 mb-2">Address Analyzed</p>
-                    <p className="text-white">{address}</p>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <div className="flex justify-between mb-2">
-                      <span className="text-gray-400">Prediction Confidence</span>
-                      <span className="text-white">Demo: 85%</span>
-                    </div>
-                    <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                      <div className="h-full w-[85%] bg-gradient-to-r from-neon-cyan to-neon-blue rounded-full"></div>
-                    </div>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <p className="text-gray-400 mb-2">Sample Prediction Ranges</p>
-                    <div className="grid grid-cols-3 gap-3">
-                      <div className="glass p-3 rounded-lg text-center">
-                        <p className="text-xs text-gray-400 mb-1">Best Case</p>
-                        <p className="text-white font-bold">780-850</p>
+                  {/* Processing animation (shown during stages 0-3) */}
+                  {animationStage < 4 && (
+                    <div className="mb-6">
+                      <div className="flex justify-between mb-2">
+                        <span className="text-gray-300">{stageMessages[animationStage]}</span>
+                        <span className="text-neon-cyan">{loadingProgress}%</span>
                       </div>
-                      <div className="p-3 rounded-lg text-center bg-gradient-to-br from-neon-cyan/20 to-neon-blue/20 border border-neon-cyan/30">
-                        <p className="text-xs text-gray-300 mb-1">Most Likely</p>
-                        <p className="text-neon-cyan font-bold">720-779</p>
-                      </div>
-                      <div className="glass p-3 rounded-lg text-center">
-                        <p className="text-xs text-gray-400 mb-1">Worst Case</p>
-                        <p className="text-white font-bold">660-719</p>
+                      <Progress 
+                        value={loadingProgress} 
+                        className="h-2 bg-gray-700" 
+                      />
+                      
+                      <div className="mt-6 flex gap-4 justify-center">
+                        {animationStage >= 0 && (
+                          <div className={`p-3 rounded-full bg-neon-cyan/10 animate-pulse ${animationStage >= 1 ? 'text-neon-cyan' : 'text-gray-500'}`}>
+                            <BarChart2 className="w-6 h-6" />
+                          </div>
+                        )}
+                        {animationStage >= 1 && (
+                          <div className={`p-3 rounded-full bg-neon-purple/10 animate-pulse ${animationStage >= 2 ? 'text-neon-purple' : 'text-gray-500'}`}>
+                            <AreaChart className="w-6 h-6" />
+                          </div>
+                        )}
+                        {animationStage >= 2 && (
+                          <div className={`p-3 rounded-full bg-neon-blue/10 animate-pulse ${animationStage >= 3 ? 'text-neon-blue' : 'text-gray-500'}`}>
+                            <TrendingUp className="w-6 h-6" />
+                          </div>
+                        )}
                       </div>
                     </div>
-                  </div>
+                  )}
                   
-                  <div className="mb-6">
-                    <p className="text-gray-400 mb-2">Sample Contributing Factors</p>
-                    <ul className="space-y-2">
-                      <li className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-neon-cyan"></div>
-                        <span className="text-gray-300">Neighborhood property values</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-neon-cyan"></div>
-                        <span className="text-gray-300">Local income levels</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-neon-cyan"></div>
-                        <span className="text-gray-300">Regional credit utilization</span>
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div className="text-center">
-                    <p className="text-gray-400 text-sm mb-4">This is a demonstration with sample data.</p>
-                    <a 
-                      href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker"
-                      className="inline-flex items-center px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-cyan to-neon-blue text-dark font-semibold transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105"
-                    >
-                      Access Full Tool
-                    </a>
-                  </div>
+                  {/* Results (shown after animation completes) */}
+                  {animationStage === 4 && (
+                    <>
+                      <div className="mb-6">
+                        <p className="text-gray-400 mb-2">Address Analyzed</p>
+                        <p className="text-white">{address}</p>
+                      </div>
+                      
+                      <div className="mb-6">
+                        <div className="flex justify-between mb-2">
+                          <span className="text-gray-400">Prediction Confidence</span>
+                          <span className="text-white">Demo: 85%</span>
+                        </div>
+                        <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                          <div className="h-full w-[85%] bg-gradient-to-r from-neon-cyan to-neon-blue rounded-full animate-pulse"></div>
+                        </div>
+                      </div>
+                      
+                      <div className="mb-6">
+                        <p className="text-gray-400 mb-2">Sample Prediction Ranges</p>
+                        <div className="grid grid-cols-3 gap-3">
+                          <div className="glass p-3 rounded-lg text-center animate-fade-in" style={{animationDelay: "0.2s"}}>
+                            <p className="text-xs text-gray-400 mb-1">Best Case</p>
+                            <p className="text-white font-bold">780-850</p>
+                          </div>
+                          <div className="p-3 rounded-lg text-center bg-gradient-to-br from-neon-cyan/20 to-neon-blue/20 border border-neon-cyan/30 animate-fade-in" style={{animationDelay: "0.5s"}}>
+                            <p className="text-xs text-gray-300 mb-1">Most Likely</p>
+                            <p className="text-neon-cyan font-bold">720-779</p>
+                          </div>
+                          <div className="glass p-3 rounded-lg text-center animate-fade-in" style={{animationDelay: "0.8s"}}>
+                            <p className="text-xs text-gray-400 mb-1">Worst Case</p>
+                            <p className="text-white font-bold">660-719</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mb-6">
+                        <p className="text-gray-400 mb-2">Sample Contributing Factors</p>
+                        <ul className="space-y-2">
+                          <li className="flex items-center gap-2 animate-fade-in" style={{animationDelay: "0.3s"}}>
+                            <div className="w-2 h-2 rounded-full bg-neon-cyan"></div>
+                            <span className="text-gray-300">Neighborhood property values</span>
+                          </li>
+                          <li className="flex items-center gap-2 animate-fade-in" style={{animationDelay: "0.6s"}}>
+                            <div className="w-2 h-2 rounded-full bg-neon-cyan"></div>
+                            <span className="text-gray-300">Local income levels</span>
+                          </li>
+                          <li className="flex items-center gap-2 animate-fade-in" style={{animationDelay: "0.9s"}}>
+                            <div className="w-2 h-2 rounded-full bg-neon-cyan"></div>
+                            <span className="text-gray-300">Regional credit utilization</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <div className="text-center">
+                        {showRedirectMessage && (
+                          <div className="bg-neon-cyan/10 border border-neon-cyan/30 rounded-lg p-4 mb-4 animate-pulse">
+                            <p className="text-neon-cyan mb-1">Launching Full Tool Experience</p>
+                            <p className="text-gray-300 text-sm">Taking you to the complete Credit Score Predictor...</p>
+                          </div>
+                        )}
+                        <Button 
+                          onClick={() => window.open("https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker", "_blank")}
+                          className="inline-flex items-center px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-cyan to-neon-blue text-dark font-semibold transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105"
+                        >
+                          Access Full Tool Now
+                        </Button>
+                      </div>
+                    </>
+                  )}
                 </div>
               )}
             </div>
