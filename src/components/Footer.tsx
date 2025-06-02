@@ -30,6 +30,13 @@ const Footer = () => {
             <p className="text-gray-400 mb-6 leading-relaxed">
               Advanced AI technology that predicts potential credit scores based on property addresses and multiple economic factors.
             </p>
+            
+            {/* Educational disclaimer */}
+            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-3 mb-4">
+              <p className="text-xs text-gray-400">
+                <span className="text-neon-cyan font-medium">Note:</span> This tool is for informational, educational, and research purposes only.
+              </p>
+            </div>
           </div>
           
           {/* Links */}
@@ -93,7 +100,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://aiwebtools.ai/terms-of-services" 
+                  href="https://aiwebtools.lovable.app/disclaimers" 
                   className="text-gray-400 hover:text-neon-cyan transition-colors"
                 >
                   Terms of Service

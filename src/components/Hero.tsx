@@ -22,7 +22,7 @@ const Hero = () => {
         <Alert className="mb-8 bg-gray-900/70 border-neon-cyan/30 text-gray-300">
           <AlertTriangle className="h-4 w-4 text-neon-cyan" />
           <AlertDescription className="text-sm">
-            <span className="font-medium text-white">Disclaimer:</span> This tool provides predictive estimates only and should not be used as a substitute for official credit checks. Results are not guaranteed.
+            <span className="font-medium text-white">Disclaimer:</span> This tool provides predictive estimates for informational, educational, and research purposes only. Should not be used as a substitute for official credit checks. Results are not guaranteed.
           </AlertDescription>
         </Alert>
         
