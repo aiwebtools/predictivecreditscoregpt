@@ -14,8 +14,14 @@ import Disclaimer from '../components/Disclaimer';
 
 const Index = () => {
   useEffect(() => {
-    // Update document title
-    document.title = "Predictive Credit Score Checker | AI-Powered Credit Prediction";
+    // Update document title with SEO optimized content
+    document.title = "AI Web Tools - Predictive Credit Score Checker | Advanced AI Tools by AIWEBTOOLS.AI";
+    
+    // Add SEO meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Professional AI web tools for credit score prediction, real estate analysis, and insurance claims. Powered by GPT-4 technology. Free AI tools for businesses and professionals by AI WEB TOOLS.');
+    }
     
     // Add intersection observer for animations
     const observer = new IntersectionObserver(
@@ -39,6 +45,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-dark text-white">
+      {/* SEO Hidden Content for Keyword Targeting */}
+      <div className="sr-only">
+        <h1>AI WEB TOOLS - Professional AI Tools by AIWEBTOOLS.AI</h1>
+        <p>Leading provider of AI web tools including credit score predictors, real estate AI tools, insurance claim assistants, and business automation solutions. Our AI tools are powered by advanced GPT technology.</p>
+        <p>Keywords: AI web tools, AI tools, artificial intelligence tools, business AI tools, GPT tools, predictive analytics, credit score AI, real estate AI tools, insurance AI tools, AIWEBTOOLS.AI, AI WEB TOOLS LLC</p>
+      </div>
+      
       {/* Background effect */}
       <BackgroundEffect />
       
@@ -80,7 +93,7 @@ const Index = () => {
         <a href="https://img1.wsimg.com/isteam/ip/9fd6d942-5b46-4025-92e2-0f1ec2a7adf2/a-screenshot-of-a-web-app-with-the-text-predic.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1200,cg:true">
           <img 
             src="https://img1.wsimg.com/isteam/ip/9fd6d942-5b46-4025-92e2-0f1ec2a7adf2/a-screenshot-of-a-web-app-with-the-text-predic.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1200,cg:true" 
-            alt="Predictive Credit Score Checker"
+            alt="AI Web Tools - Predictive Credit Score Checker by AIWEBTOOLS.AI"
           />
         </a>
       </div>
