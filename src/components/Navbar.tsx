@@ -36,7 +36,7 @@ const Navbar = () => {
               Predictive Credit Score GPT<span className="text-neon-cyan">.</span>
             </h1>
             <p className="text-xs text-gray-400 -mt-1">
-              Presented by <a href="https://www.aiwebtools.ai" className="text-neon-cyan hover:text-neon-purple transition-colors">AiWebTools.Ai</a>
+              Presented by <a href="https://aiwebtools.lovable.app/?via=aiwebtools" className="text-neon-cyan hover:text-neon-purple transition-colors">AiWebTools.Ai</a>
             </p>
           </div>
         </a>
@@ -103,8 +103,8 @@ const Navbar = () => {
       
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 glass p-6 animate-fade-in">
-          <nav className="flex flex-col space-y-4">
+        <div className="md:hidden absolute top-full left-0 right-0 glass p-6 animate-fade-in max-h-[80vh] overflow-y-auto">
+          <nav className="flex flex-col space-y-3">
             <a 
               href="https://chatgpt.com/g/g-TK9FyyklD-predictive-credit-score-checker" 
               className="text-sm font-medium text-white py-2 border-b border-white/10"

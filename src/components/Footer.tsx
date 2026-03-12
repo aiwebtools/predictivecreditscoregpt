@@ -22,7 +22,7 @@ const Footer = () => {
                   Predictive Credit Score GPT<span className="text-neon-cyan">.</span>
                 </h1>
                 <p className="text-xs text-gray-400 -mt-1">
-                  Presented by <a href="https://www.aiwebtools.ai" className="hover:text-neon-cyan">AiWebTools.Ai</a>
+                  Presented by <a href="https://aiwebtools.lovable.app/?via=aiwebtools" className="hover:text-neon-cyan">AiWebTools.Ai</a>
                 </p>
               </div>
             </a>
@@ -143,7 +143,7 @@ const Footer = () => {
             
             <div className="mt-8">
               <a
-                href="https://www.aiwebtools.ai"
+                href="https://aiwebtools.lovable.app/?via=aiwebtools"
                 className="inline-flex items-center px-5 py-2.5 rounded-full glass text-white font-medium transition-all duration-300 hover:bg-white/10"
               >
                 More AI Tools
@@ -156,11 +156,11 @@ const Footer = () => {
         <Separator className="mb-6 bg-white/5" />
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm">
-            © 2025 <a href="https://www.aiwebtools.ai" className="hover:text-neon-cyan">AI WEB TOOLS LLC</a> All rights reserved.
+            © 2025 <a href="https://aiwebtools.lovable.app/?via=aiwebtools" className="hover:text-neon-cyan">AI WEB TOOLS LLC</a> All rights reserved.
           </p>
           
           <div className="flex items-center">
-            <a href="https://www.aiwebtools.ai" className="text-gray-400 text-sm hover:text-neon-cyan transition-colors">
+            <a href="https://aiwebtools.lovable.app/?via=aiwebtools" className="text-gray-400 text-sm hover:text-neon-cyan transition-colors">
               Visit AiWebTools.Ai
             </a>
           </div>
