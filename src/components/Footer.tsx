@@ -160,7 +160,7 @@ const Footer = () => {
           </p>
           
           <div className="flex items-center">
-            <a href="https://www.aiwebtools.ai" className="text-gray-400 text-sm hover:text-neon-cyan transition-colors">
+            <a href="https://aiwebtools.lovable.app/?via=aiwebtools" className="text-gray-400 text-sm hover:text-neon-cyan transition-colors">
               Visit AiWebTools.Ai
             </a>
           </div>
