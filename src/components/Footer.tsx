@@ -156,7 +156,7 @@ const Footer = () => {
         <Separator className="mb-6 bg-white/5" />
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm">
-            © 2025 <a href="https://www.aiwebtools.ai" className="hover:text-neon-cyan">AI WEB TOOLS LLC</a> All rights reserved.
+            © 2025 <a href="https://aiwebtools.lovable.app/?via=aiwebtools" className="hover:text-neon-cyan">AI WEB TOOLS LLC</a> All rights reserved.
           </p>
           
           <div className="flex items-center">
