@@ -22,7 +22,7 @@ const Footer = () => {
                   Predictive Credit Score GPT<span className="text-neon-cyan">.</span>
                 </h1>
                 <p className="text-xs text-gray-400 -mt-1">
-                  Presented by <a href="https://www.aiwebtools.ai" className="hover:text-neon-cyan">AiWebTools.Ai</a>
+                  Presented by <a href="https://aiwebtools.lovable.app/?via=aiwebtools" className="hover:text-neon-cyan">AiWebTools.Ai</a>
                 </p>
               </div>
             </a>
